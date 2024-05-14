@@ -1,0 +1,14 @@
+[
+    {
+        "Type":"Render",
+        "Values":[
+            {"Setting":"Target Fps", "Value":"60", "Type":"Integer","Range":"0,120","Default":"60"},
+            {"Setting":"Background Color R", "Value":"255", "Type":"Integer","Range":"0,255","Default":"255"},
+            {"Setting":"Background Color G", "Value":"255", "Type":"Integer","Range":"0,255","Default":"255"},
+            {"Setting":"Background Color B", "Value":"255", "Type":"Integer","Range":"0,255","Default":"255"},
+            {"Setting":"Fullscreen", "Value":"false", "Type":"Boolean","Range":"false,true","Default":"false"}, //If enabled, the engine will ignore size.
+            {"Setting":"Screen size width", "Value":"1280", "Type":"Integer","Range":"256,3840","Default":"1280"},
+            {"Setting":"Screen size height", "Value":"720", "Type":"Integer","Range":"144,2160","Default":"720"} 
+        ]
+    }
+]
