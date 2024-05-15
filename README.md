@@ -27,6 +27,16 @@ import NGaPEngine.GameObject.*; //for all files in the GameObject package
 import NGaPEngine.Input.InputListener; //import just the imput listener file
 ```
 
+### Setting up the engine
+It is crucial that the app.java file is setup correctly. It must import `NGaPEngine.Engine.*;` and have a main method. app.java should initialize the AbstractEngine as so: `public static AbstractEngine AE;`.
+
+Inside the main method, it must contain
+```
+System.setProperty("sun.java2d.opengl", "true"); //Enable hardware acceleration (use the gpu)
+AE = new AbstractEngine();
+AE.begin();
+```
+
 ### World objects
 The engine uses WorldObjects to do create objects in 2D space. To create one, first import the GameObject package, then write your class:
 `public class <ClassName> extends WorldObject`. 
