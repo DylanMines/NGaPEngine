@@ -7,6 +7,7 @@
 
 ### Importing the engine
 The engine is split into 4 packages: 
+
 Engine:
 The core parts of the NGaP system. This package is imported into app.java to initilize the engine. Relavant settings for each part (engine, rendering, physics) are located in each class. You shouldn't have to import this package into any other files.
 
@@ -28,11 +29,11 @@ import NGaPEngine.Input.InputListener; //import just the imput listener file
 
 ### World objects
 The engine uses WorldObjects to do create objects in 2D space. To create one, first import the GameObject package, then write your class:
-`public class <ClassName> extends WorldObject`
+`public class <ClassName> extends WorldObject`. 
 In the class constructor, create a component, like a sprite, by writing
-`Sprite s = new Sprite(arguments);`
+`Sprite s = new Sprite(arguments);`.
 Add a component to the WorldObject by writing
-`this.addComponent(s);`
+`this.addComponent(s);`. 
 Or do both at once
 `this.addComponent(new Sprite(arguments));`
 
@@ -41,8 +42,8 @@ Or do both at once
 Each component has its own position, like an offset from its parent. Each component will still follow it's parent position.
 
 ### Rendering
-The engine will render at 60 fps by default. You can change this by changing the FPS_CAP in AbstractEngine.java. The rendering engine will render Sprites before TextLabels. Each rendering component (sprite/textlabel) has a ZIndex that represents the order in which it is rendered, lower first
+The engine will render at 60 fps by default. You can change this by changing the FPS_CAP in AbstractEngine.java. The rendering engine will render Sprites before TextLabels. Each rendering component (sprite/textlabel) has a ZIndex that represents the order in which it is rendered, lower first. If, for whatever reason, you wish to create your own drawing method, create a class and extend the sprite component. In your new class, overwrite the draw method and use Java's `Graphics2D` library to draw something to the screen.
 
 ### Physics
 The Not Good at Physics engine has very questionable physics most of the time, but heres the basics:
-In order for a WorldObject to have a collision component, it MUST implement the Touchable interface. Add a collision component like any other component by using `this.addComponent(c);` Each collision object can either by dynamic or static. Static objects cannot have a velocity or acceleration. Dynamic components have a velocity and acceleration instance variables that will automatically move the object each physics cycle. Dynamic components can also be affected by gravity if their mass is greater than 0.
+In order for a WorldObject to have a collision component, it MUST implement the Touchable interface. Add a collision component like any other component by using `this.addComponent(c);` Each collision object can either by dynamic or static. Static objects cannot have a velocity or acceleration. Dynamic components have a velocity and acceleration instance variables that will automatically move the object each physics cycle. Dynamic components can also be affected by gravity if their mass is greater than 0. Both static and dymanic objects will inkove their parents `touched()` method upon contact with another collision object. Each collision object has a size instance variable that determines its bounding box. A collision components bounding box is completly independant from any other component or its parent's size.
